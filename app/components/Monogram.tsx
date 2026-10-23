@@ -39,7 +39,7 @@ export function Monogram({ size = 40, className, title }: Props) {
           letterSpacing: "0.2px",
         }}
       >
-        MS<tspan fill="var(--sage)">.</tspan>A
+        MS<tspan fill="var(--gold)">.</tspan>A
       </text>
     </svg>
   );

@@ -122,7 +122,7 @@ export function Nav() {
         inert={!open}
       >
         <div className="wrap flex h-[var(--nav-h)] items-center justify-between">
-          <Monogram size={40} className="text-[var(--sage)]" />
+          <Monogram size={40} className="text-[var(--gold)]" />
           <button
             type="button"
             className="-mr-2 inline-flex h-12 w-12 cursor-pointer items-center justify-center"
@@ -140,7 +140,7 @@ export function Nav() {
         <nav aria-label="Mobile" className="wrap flex flex-1 flex-col justify-center pb-16">
           <ul>
             {nav.map((n) => (
-              <li key={n.id} className="border-t border-[rgba(156,175,136,0.35)] last:border-b">
+              <li key={n.id} className="border-t border-[var(--band-line)] last:border-b">
                 <a
                   href={`#${n.id}`}
                   onClick={() => setOpen(false)}

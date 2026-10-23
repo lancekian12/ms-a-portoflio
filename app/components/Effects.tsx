@@ -61,10 +61,8 @@ export function Effects() {
       countIo.observe(el);
     });
 
-    // Scroll-linked motion: nav progress, portrait parallax, watermark drift, timeline fill.
+    // Scroll-linked motion: nav progress and timeline fill.
     const progress = document.querySelector<HTMLElement>(".nav-progress");
-    const parallax = document.querySelectorAll<HTMLElement>("[data-parallax]");
-    const drift = document.querySelectorAll<HTMLElement>("[data-drift]");
     const tlItems = document.querySelectorAll<HTMLElement>(".tl-item");
     let ticking = false;
     let raf = 0;
@@ -74,20 +72,6 @@ export function Effects() {
       const vh = window.innerHeight;
       const max = document.documentElement.scrollHeight - vh;
       if (progress) progress.style.transform = `scaleX(${max > 0 ? window.scrollY / max : 0})`;
-
-      parallax.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > vh) return;
-        const factor = Number(el.dataset.parallax ?? 0);
-        el.style.setProperty("--py", `${(rect.top + rect.height / 2 - vh / 2) * factor}px`);
-      });
-
-      drift.forEach((el) => {
-        const host = el.parentElement!.getBoundingClientRect();
-        if (host.bottom < 0 || host.top > vh) return;
-        const p = (vh - host.top) / (vh + host.height); // 0 → 1 across the viewport
-        el.style.setProperty("--dx", `${(0.5 - p) * Number(el.dataset.drift ?? 160)}px`);
-      });
 
       const line = vh * 0.62;
       tlItems.forEach((el) => {

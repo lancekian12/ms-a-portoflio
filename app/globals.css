@@ -1170,3 +1170,51 @@ sup.fn {
     }
   }
 }
+
+/* ---- Contact: email + résumé downloads ---- */
+@layer components {
+  .email-link {
+    color: var(--band-text);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    font-variant-numeric: lining-nums;
+    overflow-wrap: anywhere;
+    background-image: linear-gradient(var(--sage), var(--sage));
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    transition: background-size 500ms var(--ease-out);
+  }
+  .email-link:hover {
+    background-size: 100% 1px;
+  }
+
+  .resume-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-height: 64px;
+    padding: 18px 4px;
+    border-top: 1px solid rgba(156, 175, 136, 0.35);
+    transition: background-color 300ms ease;
+  }
+  li:last-child > .resume-row {
+    border-bottom: 1px solid rgba(156, 175, 136, 0.35);
+  }
+  .resume-row:hover {
+    background: rgba(156, 175, 136, 0.08);
+  }
+  .resume-tag {
+    flex: none;
+    width: 56px;
+    color: var(--band-meta);
+  }
+  .resume-icon {
+    flex: none;
+    color: var(--sage);
+    transition: transform 350ms var(--ease-out);
+  }
+  .resume-row:hover .resume-icon {
+    transform: translateY(3px);
+  }
+}

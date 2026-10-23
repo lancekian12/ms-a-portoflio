@@ -1,9 +1,26 @@
 // Site content. Sourced from the brief and the long-form résumé.
-// Placeholders the owner must fill in: CONTACT_EMAIL, LINKEDIN_URL, CV_URL, portrait.
+// Placeholder the owner may fill in: LINKEDIN_URL (link is hidden while empty).
 
-export const CONTACT_EMAIL = "hello@example.com"; // TODO: professional email
-export const LINKEDIN_URL = "https://www.linkedin.com/in/your-profile"; // TODO
-export const CV_URL = "/anna-sendaydiego-cv.pdf"; // TODO: add file to /public
+export const CONTACT_EMAIL = "annalurene_3411@yahoo.com";
+export const LINKEDIN_URL = ""; // TODO: e.g. "https://www.linkedin.com/in/..."
+
+// Downloadable résumés, served from /public/resume.
+export const resumes = [
+  {
+    title: "Executive résumé",
+    version: "Short",
+    description: "Concise overview of leadership, expertise, and results.",
+    href: "/resume/anna-sendaydiego-resume-short.docx",
+    meta: "DOCX · 30 KB",
+  },
+  {
+    title: "Full résumé",
+    version: "Long",
+    description: "Complete career history with responsibilities and achievements per role.",
+    href: "/resume/anna-sendaydiego-resume-long.docx",
+    meta: "DOCX · 97 KB",
+  },
+];
 
 export const site = {
   name: "Anna Lurene Sendaydiego",

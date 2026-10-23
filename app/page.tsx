@@ -2,7 +2,6 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import portrait from "./assets/portrait.jpg";
 import {
-  CV_URL,
   CONTACT_EMAIL,
   LINKEDIN_URL,
   achievements,
@@ -16,6 +15,7 @@ import {
   profile,
   qualityMetrics,
   rarejobRoles,
+  resumes,
   services,
   site,
 } from "./content";
@@ -452,26 +452,61 @@ export default function Home() {
                   I am open to conversations about senior finance leadership and advisory
                   engagements.
                 </p>
-                <div className="mt-10 flex flex-wrap gap-4" data-reveal style={stagger(2)}>
-                  <a href={CV_URL} className="btn btn--ghost" download>
-                    Download CV (PDF)
+                <div className="mt-10" data-reveal style={stagger(2)}>
+                  <p className="label">Email</p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="email-link mt-2 inline-block text-[clamp(1.125rem,0.95rem+0.8vw,1.5rem)]"
+                  >
+                    {CONTACT_EMAIL}
                   </a>
+                </div>
+
+                <div className="mt-12" data-reveal style={stagger(3)}>
+                  <p className="label">Download résumé</p>
+                  <ul className="mt-4">
+                    {resumes.map((r) => (
+                      <li key={r.href}>
+                        <a href={r.href} download className="resume-row">
+                          <span className="resume-tag label num">{r.version}</span>
+                          <span className="min-w-0 flex-1">
+                            <span className="block font-semibold text-[var(--band-text)]">
+                              {r.title}
+                            </span>
+                            <span className="meta block text-sm">{r.description}</span>
+                            <span className="footnote mt-1 block">{r.meta}</span>
+                          </span>
+                          <svg
+                            className="resume-icon"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M10 3v11m0 0l-4.5-4.5M10 14l4.5-4.5M4 17h12"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.25"
+                            />
+                          </svg>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {LINKEDIN_URL && (
                   <a
                     href={LINKEDIN_URL}
-                    className="btn btn--ghost"
+                    className="btn btn--ghost mt-10"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     LinkedIn <span className="sr-only">(opens in a new tab)</span>
                     <span aria-hidden="true">↗</span>
                   </a>
-                </div>
-                <p className="footnote mt-6" data-reveal style={stagger(3)}>
-                  Or write directly:{" "}
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="underline decoration-[var(--sage)] underline-offset-4">
-                    {CONTACT_EMAIL}
-                  </a>
-                </p>
+                )}
               </div>
               <div className="lg:col-span-6 lg:col-start-7" data-reveal style={stagger(1)}>
                 <ContactForm />

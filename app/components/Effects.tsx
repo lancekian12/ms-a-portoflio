@@ -14,17 +14,25 @@ export function Effects() {
       return;
     }
 
+    // A clip-path'd element has no visible area, so IntersectionObserver never fires
+    // for it. Watch its parent instead and reveal the element when the parent enters.
+    const watched = new Map<Element, HTMLElement[]>();
+    targets.forEach((el) => {
+      const watcher = el.dataset.reveal === "clip" && el.parentElement ? el.parentElement : el;
+      watched.set(watcher, [...(watched.get(watcher) ?? []), el]);
+    });
+
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
-          entry.target.classList.add("is-in");
+          watched.get(entry.target)?.forEach((el) => el.classList.add("is-in"));
           io.unobserve(entry.target);
         }
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0 },
     );
-    targets.forEach((el) => io.observe(el));
+    watched.forEach((_, watcher) => io.observe(watcher));
 
     const frames: number[] = [];
     const countIo = new IntersectionObserver(

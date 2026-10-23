@@ -145,7 +145,10 @@ export default function Home() {
           <div className="wrap">
             <SectionHead n="01" label="Profile" id="profile" />
             <div className="ledger">
-              <div className="hidden lg:block" />
+              <div className="hidden lg:block" data-reveal>
+                <p className="label">In brief</p>
+                <p className="meta mt-2 text-sm">Two decades in finance and audit.</p>
+              </div>
               <div className="grid gap-16 md:grid-cols-12">
                 <div className="space-y-6 md:col-span-7">
                   <p className="lede" data-reveal="clip">

@@ -1,4 +1,4 @@
-// Rotating audit-stamp seal: circular legend around the AS monogram.
+// Rotating audit-stamp seal: circular legend around the MS.A monogram.
 export function SealBadge({ size = 132, className = "" }: { size?: number; className?: string }) {
   const legend = "CPA · CIA · FINANCE EXECUTIVE · EST. 2006 · ";
   return (
@@ -22,9 +22,9 @@ export function SealBadge({ size = 132, className = "" }: { size?: number; class
           textAnchor="middle"
           dominantBaseline="middle"
           fill="currentColor"
-          style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 28 }}
+          style={{ fontFamily: "var(--font-cormorant), Georgia, serif", fontSize: 20, letterSpacing: "0.3px" }}
         >
-          AS
+          MS<tspan fill="var(--sage)">.</tspan>A
         </text>
       </svg>
     </div>

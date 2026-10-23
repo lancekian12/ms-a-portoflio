@@ -30,11 +30,11 @@ export default async function Image() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: 48,
+            fontSize: 34,
             color: "#9CAF88",
           }}
         >
-          AS
+          MS.A
         </div>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 22, letterSpacing: 5, color: "#B9C7AA" }}>

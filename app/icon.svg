@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <circle cx="32" cy="32" r="32" fill="#1F3A2E"/>
   <circle cx="32" cy="32" r="28" fill="none" stroke="#9CAF88" stroke-width="1.5"/>
-  <text x="32" y="33" text-anchor="middle" dominant-baseline="middle" fill="#FAFAF6" font-family="Georgia, 'Times New Roman', serif" font-size="24" letter-spacing="-0.5">AS</text>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="middle" fill="#FAFAF6" font-family="Georgia, 'Times New Roman', serif" font-size="16" letter-spacing="0.2">MS<tspan fill="#9CAF88">.</tspan>A</text>
 </svg>

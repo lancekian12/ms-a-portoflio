@@ -4,7 +4,7 @@ type Props = {
   title?: string;
 };
 
-// "AS" seal: thin double ring like an audit stamp.
+// "MS.A" seal: thin double ring like an audit stamp.
 export function Monogram({ size = 40, className, title }: Props) {
   return (
     <svg
@@ -34,12 +34,12 @@ export function Monogram({ size = 40, className, title }: Props) {
         fill="currentColor"
         style={{
           fontFamily: "var(--font-cormorant), Georgia, serif",
-          fontSize: 25,
+          fontSize: 18,
           fontWeight: 400,
-          letterSpacing: "-0.5px",
+          letterSpacing: "0.2px",
         }}
       >
-        AS
+        MS<tspan fill="var(--sage)">.</tspan>A
       </text>
     </svg>
   );
